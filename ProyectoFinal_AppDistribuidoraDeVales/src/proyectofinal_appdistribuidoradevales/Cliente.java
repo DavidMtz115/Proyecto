@@ -1,36 +1,39 @@
-
 package proyectofinal_appdistribuidoradevales;
 
-/*
- David, Iram, Angel, Luis
- */
 public abstract class Cliente {
     
-    protected String nombre_cliente;
+    protected String nombre;
     protected String telefono;
     protected String direccion;
     protected int dia_pago;
+    protected String datos;
     
-    //-----------------------------
+//------------------------------------------------------------------------------
+    
+    //Constructor default
     public Cliente() {
         this.direccion = "-----";
-        this.nombre_cliente = "-----";
+        this.nombre = "-----";
         this.telefono = "----";
         this.dia_pago = 0;
     }
-    public Cliente(String nombre_cliente, String telefono, String direccion, int dia_pago) {
-        this.nombre_cliente = nombre_cliente;
+    
+    //Constructor con argumentos
+    public Cliente(String nombre, String telefono, String direccion, int dia_pago) {
+        this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
         this.dia_pago = dia_pago;
     }
     
-    //-------------------------------------------
-    public String getNombre_cliente() {
-        return nombre_cliente;
+//------------------------------------------------------------------------------
+    
+    //Métodos get y set
+    public String getNombre() {
+        return nombre;
     }
-    public void setNombre_cliente(String nombre_cliente) {
-        this.nombre_cliente = nombre_cliente;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     public String getTelefono() {
         return telefono;
@@ -49,6 +52,9 @@ public abstract class Cliente {
     }
     public void setDia_pago(int dia_pago) {
         this.dia_pago = dia_pago;
+    }
+    public void setDatos(String datos){
+        this.datos = datos;
     }
     
 }

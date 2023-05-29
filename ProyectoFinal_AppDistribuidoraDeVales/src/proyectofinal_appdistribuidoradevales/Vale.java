@@ -1,9 +1,5 @@
-
 package proyectofinal_appdistribuidoradevales;
 
-/*
- David, Iram, Angel, Luis
- */
 public class Vale extends Cliente implements Calculos{
     
     private int cantidad;
@@ -12,7 +8,9 @@ public class Vale extends Cliente implements Calculos{
     private double adeudo;
     private int deposito;    
     
-    //-------------------------------
+//------------------------------------------------------------------------------
+    
+    //Constructor default
     public Vale() { 
         super();
         this.cantidad = 0;
@@ -20,15 +18,19 @@ public class Vale extends Cliente implements Calculos{
         this.tipo = "-------";
         this.deposito = 0;
     }
-    public Vale(int cantidad, int quincena, String tipo,int deposito, String nombre_cliente, String telefono, String direccion, int dia_pago) {
-        super(nombre_cliente, telefono, direccion, dia_pago);
+    
+    //Constructor con argumentos
+    public Vale(int cantidad, int quincena, String tipo,int deposito, String nombre, String telefono, String direccion, int dia_pago) {
+        super(nombre, telefono, direccion, dia_pago);
         this.cantidad = cantidad;
         this.quincena = quincena;
         this.tipo = tipo;
         this.deposito = deposito;
     }
 
-    //---------------------------------------
+//------------------------------------------------------------------------------
+    
+    //Métodos get y set
     public int getCantidad() {
         return cantidad;
     }
@@ -57,7 +59,10 @@ public class Vale extends Cliente implements Calculos{
         this.deposito = deposito;
     }
     
-    //--------------------------------------
+//------------------------------------------------------------------------------
+    
+    /* Override del método que asigna un valor al adeudo en función del número 
+    de quincenas */
     @Override
     public double calcularAdeudo() {
         
@@ -73,6 +78,8 @@ public class Vale extends Cliente implements Calculos{
             return adeudo;
     }
 
+    /* Override del método para sumar un cargo extra del 20% en caso de que el
+    cliente no haya pagado en el lapso establecido */
     @Override
     public double pagos() {
         if(dia_pago == 15 || dia_pago == 30){
@@ -81,18 +88,6 @@ public class Vale extends Cliente implements Calculos{
             adeudo = adeudo + (adeudo * .20);
         }
             return adeudo;
-    }
-
-    @Override
-    public void imprimirDatos() {
-        System.out.println("VALE:");
-        System.out.println("Nombre del Cliente: " +nombre_cliente);
-        System.out.println("Asunto del Vale: " +tipo);
-        System.out.println("Telefono: " +telefono);
-        System.out.println("Dirección: " +direccion);
-        System.out.println("Cantidad solicitada: $" +cantidad);
-        System.out.println("Quincensa: " +quincena);
-        System.out.println("Aduedo: $" +adeudo);
     }
     
 }
